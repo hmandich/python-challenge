@@ -57,22 +57,20 @@ for h in candidatelist:
     candidatevotes.append((candidate.count(h)))
     percentage.append((candidate.count(h))/(len(voterID))*100)
 
-print(candidatevotes)
-print(percentage)
-
 #candidate with most votes = winner
 winner = max(set(candidate),key = candidate.count)
-print(winner)
+
 
 #print results in terminal 
 print('Election Results')
 print('-------------------------')
 #total number of votes using len
-#print('Total Votes:', len(voterID))
+print('Total Votes:', len(voterID))
 print('-------------------------')
 #print list of candiates,% and count 
-#for index inrange(len(candidatelist)):
-#print (candidatelist[index]),(percentage[index],3), (candidatevotes[index])
+
+for i inrange(len(candidatelist)):
+    print(candidatelist[i],round(percentage[i],3),(candidatevotes[i])
 #print winner
-print("Winner:")
+print("Winner:",winner)
 print('-------------------------')

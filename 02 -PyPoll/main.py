@@ -1,9 +1,3 @@
-#The total number of votes cast
-#A complete list of candidates who received votes
-#The percentage of votes each candidate won
-#The total number of votes each candidate won
-#The winner of the election based on popular vote.
-
 '''Election Results
 -------------------------
 Total Votes: 3521001
@@ -68,9 +62,13 @@ print('-------------------------')
 print('Total Votes:', len(voterID))
 print('-------------------------')
 #print list of candiates,% and count 
+for x in range(len(candidatelist)):
+    candidate_name = str(candidatelist[x])
+    candidate_percent =str(round(percentage[x],3))
+    candiate_vote = str(​​candidatevotes[x])
 
-for i inrange(len(candidatelist)):
-    print(candidatelist[i],round(percentage[i],3),(candidatevotes[i])
+    print(candidate_name + candidate_percent + candidate_votes)
+#print(f"{​​​(candidatelist[x]:) + (​​​round(percentage[x],3)00%) + (​​candidatevotes[x])}")
 #print winner
 print("Winner:",winner)
 print('-------------------------')

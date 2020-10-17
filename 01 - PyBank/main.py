@@ -1,5 +1,8 @@
 import os
 import csv
+import sys
+
+
 
 #The total number of months included in the dataset
 #The net total amount of "Profit/Losses" over the entire period
@@ -32,7 +35,6 @@ with open(budget_data,'r') as input_file:
         max_change_wmonth = str(month_year[change.index(max(change))])
         min_change_wmonth = str(month_year[change.index(min(change))])
 
-
 #Print script in terminal
 print("Financial Analysis")
 print("------------------------------")
@@ -42,5 +44,17 @@ print("Average  Change: $",round(avg_change,2))
 print("Greatest Increase in Profits:",max_change_wmonth,"($",round(max_change),")")
 print("Greatest Decrease in Profits:",min_change_wmonth,"($",round(min_change),")")
 
-#print(min_change)
-#print(max_change)
+#create txt file
+stdoutOrigin=sys.stdout 
+sys.stdout = open("PyBank_Analysis.txt", "w")
+
+print("Financial Analysis")
+print("------------------------------")
+print("Total Months:",len(month_year))
+print("Total: $",sum(net_amount))
+print("Average  Change: $",round(avg_change,2))
+print("Greatest Increase in Profits:",max_change_wmonth,"($",round(max_change),")")
+print("Greatest Decrease in Profits:",min_change_wmonth,"($",round(min_change),")")
+
+sys.stdout.close()
+sys.stdout=stdoutOrigin

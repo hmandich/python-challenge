@@ -4,6 +4,18 @@
 #The total number of votes each candidate won
 #The winner of the election based on popular vote.
 
+'''Election Results
+-------------------------
+Total Votes: 3521001
+-------------------------
+Khan: 63.000% (2218231)
+Correy: 20.000% (704200)
+Li: 14.000% (492940)
+O'Tooley: 3.000% (105630)
+-------------------------
+Winner: Khan
+-------------------------
+'''
 import os
 import csv
 import sys
@@ -28,7 +40,39 @@ with open(election_data,'r',encoding ='utf-8') as input_file:
         county.append(r[1])
         candidate.append(r[2])
 
-#total number of votes using len
-#totalvotes = 
 
-print('Total Votes:', len(voterID))
+
+#find unique list of candidates 
+candidatelist = list(set(candidate))
+
+#print(candidatelist)
+
+#create lists for total votes and % 
+candidatevotes = []
+percentage = [] 
+
+#find values for total votes and % with for loop
+
+for h in candidatelist:
+    candidatevotes.append((candidate.count(h)))
+    percentage.append((candidate.count(h))/(len(voterID))*100)
+
+print(candidatevotes)
+print(percentage)
+
+#candidate with most votes = winner
+winner = max(set(candidate),key = candidate.count)
+print(winner)
+
+#print results in terminal 
+print('Election Results')
+print('-------------------------')
+#total number of votes using len
+#print('Total Votes:', len(voterID))
+print('-------------------------')
+#print list of candiates,% and count 
+#for index inrange(len(candidatelist)):
+#print (candidatelist[index]),(percentage[index],3), (candidatevotes[index])
+#print winner
+print("Winner:")
+print('-------------------------')
